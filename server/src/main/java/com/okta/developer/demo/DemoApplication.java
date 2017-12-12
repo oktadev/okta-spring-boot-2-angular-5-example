@@ -31,7 +31,7 @@ public class DemoApplication {
                 car.setName(name);
                 repository.save(car);
             });
-            repository.findAll().forEach(car -> System.out.println(car));
+            repository.findAll().forEach(System.out::println);
         };
     }
 
