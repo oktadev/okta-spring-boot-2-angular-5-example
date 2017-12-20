@@ -9,6 +9,6 @@ import { OktaAuthService } from '@okta/okta-angular';
 export class AppComponent {
   title = 'app';
 
-  constructor(private oktaAuth: OktaAuthService) {
+  constructor(public oktaAuth: OktaAuthService) {
   }
 }
