@@ -11,8 +11,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @ToString @EqualsAndHashCode
 public class Car {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
     private @NonNull String name;
 }

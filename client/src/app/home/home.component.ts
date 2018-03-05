@@ -7,6 +7,7 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+
   constructor(private oktaAuth: OktaAuthService) {
   }
 }
