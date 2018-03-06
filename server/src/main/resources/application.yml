@@ -1,0 +1,13 @@
+security:
+    oauth2:
+        client:
+            access-token-uri: https://{yourOktaDomain}.com/oauth2/default/v1/token
+            user-authorization-uri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
+            client-id: {clientId}
+            client-secret: {clientSecret}
+            client-authentication-scheme: form
+            scope: openid profile email
+        resource:
+            user-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
+            token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
+            prefer-token-info: false
