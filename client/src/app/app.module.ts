@@ -1,24 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarService } from './shared/car/car.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { CarService } from './shared/car/car.service';
+import { CarListComponent } from './car-list/car-list.component';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GiphyService } from './shared/giphy/giphy.service';
 import { CarEditComponent } from './car-edit/car-edit.component';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { OktaAuthGuard, OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
+import { FormsModule } from '@angular/forms';
+import { OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
 import { AuthInterceptor } from './shared/okta/auth.interceptor';
 import { HomeComponent } from './home/home.component';
-
-const config = {
-  issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oacybtd068HHoLtQ0h7'
-};
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -28,7 +23,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'car-list',
-    component: CarListComponent,
+    component: CarListComponent
   },
   {
     path: 'car-add',
@@ -44,6 +39,12 @@ const appRoutes: Routes = [
   }
 ];
 
+const config = {
+  issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
+  redirectUri: 'http://localhost:4200/implicit/callback',
+  clientId: '0oae7f1vknMbkpoCX0h7'
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,12 +56,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
     OktaAuthModule.initAuth(config)
   ],
@@ -68,5 +69,4 @@ const appRoutes: Routes = [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

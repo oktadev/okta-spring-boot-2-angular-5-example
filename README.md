@@ -44,13 +44,22 @@ Log in to your Okta Developer account (or [sign up](https://developer.okta.com/s
 
 #### Server Configuration
 
-Set the `issuer` and copy the `clientId` into `server/src/main/resources/application.properties`. 
+Set your domain and copy the `clientId` into `server/src/main/resources/application.yml`. 
 
 **NOTE:** The value of `{yourOktaDomain}` should be something like `dev-123456.oktapreview`. Make sure you don't include `-admin` in the value!
 
-```properties
-okta.oauth.issuer=https://{yourOktaDomain}.com/oauth2/default
-okta.oauth.clientId={clientId}
+```yaml
+security:
+    oauth2:
+        client:
+            access-token-uri: https://{yourOktaDomain}.com/oauth2/default/v1/token
+            user-authorization-uri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
+            client-id: {clientId}
+            scope: openid profile email
+        resource:
+            user-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
+            token-info-uri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
+            prefer-token-info: false
 ```
 
 #### Client Configuration
@@ -67,9 +76,10 @@ const config = {
 
 ## Links
 
-This example uses the following libraries provided by Okta:
+This example uses the following open source libraries:
 
-* [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
+* [Spring Security OAuth](http://projects.spring.io/spring-security-oauth/)
+* [Spring Security OAuth Boot 2 Autoconfig](https://github.com/spring-projects/spring-security-oauth2-boot)
 * [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular)
 
 ## Help
