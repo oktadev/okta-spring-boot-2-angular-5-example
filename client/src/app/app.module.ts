@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CarService } from './shared/car/car.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CarListComponent } from './car-list/car-list.component';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
 const config = {
   issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
   redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oae7f1vknMbkpoCX0h7'
+  clientId: '0oae8qa23sL5AmNXq0h7'
 };
 
 @NgModule({
