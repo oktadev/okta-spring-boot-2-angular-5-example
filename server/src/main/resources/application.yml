@@ -3,7 +3,7 @@ security:
         client:
             access-token-uri: https://dev-158606.oktapreview.com/oauth2/default/v1/token
             user-authorization-uri: https://dev-158606.oktapreview.com/oauth2/default/v1/authorize
-            client-id: 0oae7f1vknMbkpoCX0h7
+            client-id: 0oae8qa23sL5AmNXq0h7
             scope: openid profile email
         resource:
             user-info-uri: https://dev-158606.oktapreview.com/oauth2/default/v1/userinfo
