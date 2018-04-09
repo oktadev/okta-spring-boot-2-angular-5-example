@@ -19,22 +19,22 @@ import org.springframework.web.filter.CorsFilter;
 @SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
-	@Bean
-	ApplicationRunner init(CarRepository repository) {
-		return args -> {
-			Stream.of("Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti",
-					"AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
-				Car car = new Car();
-				car.setName(name);
-				repository.save(car);
-			});
-			repository.findAll().forEach(System.out::println);
-		};
-	}
+    @Bean
+    ApplicationRunner init(CarRepository repository) {
+        return args -> {
+            Stream.of("Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti",
+                    "AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
+                Car car = new Car();
+                car.setName(name);
+                repository.save(car);
+            });
+            repository.findAll().forEach(System.out::println);
+        };
+    }
 
     @Bean
     @SuppressWarnings("unchecked")
