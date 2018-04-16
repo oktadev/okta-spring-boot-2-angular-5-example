@@ -18,7 +18,7 @@ Please read [Build a Basic CRUD App with Angular 5.0 and Spring Boot 2.0](https:
 To install this example application, run the following commands:
 
 ```bash
-git clone git@github.com:oktadeveloper/okta-spring-boot-2-angular-5-example.git
+git clone https://github.com/oktadeveloper/okta-spring-boot-2-angular-5-example.git
 cd okta-spring-boot-2-angular-5-example
 ```
 
