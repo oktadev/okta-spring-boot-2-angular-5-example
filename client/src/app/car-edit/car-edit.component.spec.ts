@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CarEditComponent } from './car-edit.component';
+import { MatCardModule, MatInputModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
+import { CarService } from '../shared/car/car.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GiphyService } from '../shared/giphy/giphy.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CarEditComponent', () => {
   let component: CarEditComponent;
@@ -8,9 +15,11 @@ describe('CarEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarEditComponent ]
+      declarations: [CarEditComponent],
+      imports: [RouterTestingModule, MatCardModule, MatInputModule, FormsModule, HttpClientModule, NoopAnimationsModule],
+      providers: [CarService, GiphyService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

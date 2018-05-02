@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CarListComponent } from './car-list.component';
+import { MatCardModule, MatListModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CarService } from '../shared/car/car.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GiphyService } from '../shared/giphy/giphy.service';
 
 describe('CarListComponent', () => {
   let component: CarListComponent;
@@ -8,9 +13,11 @@ describe('CarListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CarListComponent ]
+      declarations: [CarListComponent],
+      imports: [HttpClientModule, MatCardModule, MatListModule, RouterTestingModule],
+      providers: [CarService, GiphyService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
